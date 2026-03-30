@@ -2,22 +2,8 @@ Snowflake ELT Pipeline with AWS Glue & Snowpark
 An end-to-end ELT pipeline that extracts sales order data from GitHub across three countries, loads it into AWS S3 via AWS Glue, and transforms it through four Snowflake schemas using Snowpark Python.
 
 Architecture
-                  GitHub (CSV / Parquet / JSON)
-                          │
-                          ▼
-                     AWS Glue (Python job)
-                          │
-                          ▼
-                      AWS S3 Bucket
-                          │
-                          ▼
-┌──────────────────────────────────────────────────┐
-│                 Snowflake (Snowpark)             │
-│                                                  │
-│        Staging → Raw → Transformed → Curated     |
-└──────────────────────────────────────────────────┘
-
-
+                  GitHub (CSV / Parquet / JSON) --> AWS Glue (Python job) -->  AWS S3 Bucket --> Snowflake (Snowpark)   [Staging → Raw → Transformed → Curated ]
+                                        
 **Objective**
 Automate the extraction, transformation, and loading (ELT) of sales data from multiple countries into Snowflake, using AWS Glue for orchestration and Snowpark for in-database transformations.
 

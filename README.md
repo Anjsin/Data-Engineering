@@ -1,13 +1,17 @@
-Snowflake ELT Pipeline with AWS Glue & Snowpark
+**Snowflake ELT Pipeline with AWS Glue & Snowpark**
+
 An end-to-end ELT pipeline that extracts sales order data from GitHub across three countries, loads it into AWS S3 via AWS Glue, and transforms it through four Snowflake schemas using Snowpark Python.
 
-Architecture
+**Architecture**
+                 
                   GitHub (CSV / Parquet / JSON) --> AWS Glue (Python job) -->  AWS S3 Bucket --> Snowflake (Snowpark)   [Staging → Raw → Transformed → Curated ]
                                         
 **Objective**
+
 Automate the extraction, transformation, and loading (ELT) of sales data from multiple countries into Snowflake, using AWS Glue for orchestration and Snowpark for in-database transformations.
 
 **Data Sources**
+
 Sales order files are stored in a GitHub repository in different formats per country:
 Country Format 
 India CSV
@@ -15,6 +19,7 @@ USA Parquet
 France JSON
 
 **ELT Process**
+
 **1. Data Extraction and Storage — AWS Glue + S3**
 
 AWS Glue runs a Python script that connects to the GitHub repository.
@@ -43,18 +48,28 @@ Final curated datasets are loaded into the CURATED schema, ready for reporting a
 
 
 **Snowflake Schema Structure**
-Database
-├── STAGING       ← Raw files loaded via COPY INTO
-├── RAW           ← Validated, schema-aligned tables
-├── TRANSFORMED   ← Cleaned, unioned, enriched data
-└── CURATED       ← Aggregated, analytics-ready tables
+
+**Database**
+
+STAGING       ← Raw files loaded via COPY INTO
+
+RAW           ← Validated, schema-aligned tables
+
+TRANSFORMED   ← Cleaned, unioned, enriched data
+
+CURATED       ← Aggregated, analytics-ready tables
 
 **Tech Stack**
-LayerTechnology
-Source control
-GitHub
-OrchestrationAWS Glue (Python shell job)
-File storage AWS S3 
-Data warehouse Snowflake
-Transformation Snowpark Python Notebook
-Snowflake Notebooks (Jupyter)
+
+
+Source : control GitHub
+
+Orchestration : AWS Glue (Python shell job)
+
+File storage : AWS S3 
+
+Data warehouse  : Snowflake
+
+Transformation : Snowpark Python Notebook
+
+Snowflake Notebooks 
